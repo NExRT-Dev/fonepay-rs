@@ -1,4 +1,4 @@
-# Fonepay Dynamic QR API Documentation
+# Dynamic QR - Rust
 
 Version: 1.1
 Date: July 2024
@@ -11,12 +11,6 @@ Date: July 2024
 - get_qr_request_: alias for status check (same as post_qr_request_status).
 - post_hmac_cred: HMAC signature generation format and sample code.
 - get_hmac_cred: testing credentials (merchantCode, secretKey, username, password).
-
-## Base URLs
-
-Dev (UAT): https://uat-new-merchant-api.fonepay.com/api
-
-Live: https://merchantapi.fonepay.com/api
 
 ## 1) post_qr_request - Create QR
 
