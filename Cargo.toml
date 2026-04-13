@@ -1,0 +1,24 @@
+[package]
+name = "fonepay-dynamic-qr"
+version = "0.1.0"
+edition = "2024"
+description = "Rust crate for Fonepay Dynamic QR integration"
+license = "MIT"
+readme = "README.md"
+
+[dependencies]
+qrcode = "0.12"       # QR code generation
+tokio = { version = "1", features = ["full"] } # async runtime
+hmac = "0.12"         # HMAC generation
+sha2 = "0.10"         # SHA512 hashing
+hex = "0.4"           # Hex encoding
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+tokio-tungstenite = "0.20"   # for WebSocket
+futures-util = "0.3"
+reqwest = { version = "0.11", features = ["json"] }    # HTTP client for API calls
+dotenv = "0.15"        # Environment variable loading
+chrono = "0.4"          # Date/time handling
+axum = "0.7"            # Web server framework
+tower = "0.4"             # HTTP middleware
+tower-http = "0.5"         # HTTP types
