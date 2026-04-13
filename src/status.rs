@@ -1,25 +1,12 @@
 use serde::{Serialize, Deserialize};
 use crate::hmac_utils::generate_hmac;
+use crate::qr_request::QrRequest;
 
 #[derive(Serialize)]
 pub struct StatusRequest<'a> {
     pub prn: &'a str,
     #[serde(rename = "merchantCode")]
     pub merchant_code: &'a str,
-    #[serde(rename = "dataValidation")]
-    pub data_validation: String,
-    pub username: &'a str,
-    pub password: &'a str,
-}
-
-#[derive(Serialize)]
-pub struct QrRequest<'a> {
-    pub amount: &'a str,
-    pub prn: &'a str,
-    #[serde(rename = "merchantCode")]
-    pub merchant_code: &'a str,
-    pub remarks1: &'a str,
-    pub remarks2: &'a str,
     #[serde(rename = "dataValidation")]
     pub data_validation: String,
     pub username: &'a str,
@@ -63,31 +50,6 @@ pub fn build_status_request<'a>(
     StatusRequest {
         prn,
         merchant_code,
-        data_validation: dv,
-        username,
-        password,
-    }
-}
-
-pub fn build_qr_request<'a>(
-    amount: &'a str,
-    prn: &'a str,
-    merchant_code: &'a str,
-    remarks1: &'a str,
-    remarks2: &'a str,
-    username: &'a str,
-    password: &'a str,
-    secret_key: &str,
-) -> QrRequest<'a> {
-    let message = format!("{},{},{},{},{}", amount, prn, merchant_code, remarks1, remarks2);
-    let dv = generate_hmac(secret_key, &message);
-
-    QrRequest {
-        amount,
-        prn,
-        merchant_code,
-        remarks1,
-        remarks2,
         data_validation: dv,
         username,
         password,

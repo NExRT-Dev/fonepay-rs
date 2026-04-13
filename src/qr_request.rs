@@ -20,7 +20,7 @@ pub struct QrRequest<'a> {
     pub password: &'a str,
 }
 
-pub fn build_qr_request<'a>(
+pub fn create_qr_request<'a>(
     amount: &'a str,
     prn: &'a str,
     merchant_code: &'a str,

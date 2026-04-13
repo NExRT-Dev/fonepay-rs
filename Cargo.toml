@@ -1,8 +1,9 @@
 [package]
-name = "fonepay-dynamic-qr"
+name = "fonepay-rs"
 version = "0.1.0"
 edition = "2024"
 description = "Rust crate for Fonepay Dynamic QR integration"
+repository = "https://github.com/NExRT-Dev/fonepay-rs"
 license = "MIT"
 readme = "README.md"
 

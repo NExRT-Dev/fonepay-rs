@@ -11,6 +11,7 @@ pub struct WebSocketMessage {
 }
 
 #[derive(Deserialize, Debug)]
+#[allow(dead_code)]
 pub struct TransactionStatus {
     pub success: bool,
     pub message: String,
@@ -117,22 +118,3 @@ pub async fn listen_websocket(ws_url: &str) -> Result<(), Box<dyn std::error::Er
     listen_websocket_with_callback(ws_url, callback).await
 }
 
-pub fn parse_transaction_status(json_str: &str) -> Result<TransactionStatus, serde_json::Error> {
-    serde_json::from_str(json_str)
-}
-
-pub fn is_payment_success(message: &str) -> bool {
-    if let Ok(status) = parse_transaction_status(message) {
-        status.payment_success.unwrap_or(false)
-    } else {
-        false
-    }
-}
-
-pub fn is_qr_verified(message: &str) -> bool {
-    if let Ok(status) = parse_transaction_status(message) {
-        status.qr_verified.unwrap_or(false)
-    } else {
-        false
-    }
-}
