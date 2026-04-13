@@ -86,3 +86,7 @@ PRN,MERCHANT-CODE
 2. Generate HMAC securely in backend only.
 3. After websocket message, confirm with status API.
 4. Do not URL-encode values used in HMAC input.
+
+## License
+
+MIT. See LICENSE.txt.
